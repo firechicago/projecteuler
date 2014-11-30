@@ -1,24 +1,25 @@
-def buildPrimeArray n
+def build_prime_hash n
 
-	#returns an array containing all the prime numbers up to some positive integer n
+	#returns a hash containing all the prime numbers up to some positive integer n
 
-	primeHash = {}
-	primes = [2]
-	potentialprime = 3
-	while potentialprime <= n
-		if primeHash[potentialprime] != false
-			primes.push(potentialprime)
-			if potentialprime ** 2 < n
-				notprime = potentialprime * 2
+	prime_hash = {
+		2 => true
+	}
+	potential_prime = 3
+	while potential_prime <= n
+		if primeHash[potential_prime] != false
+			prime_hash[potential_prime] = true
+			if potential_prime ** 2 < n
+				notprime = potential_prime * 2
 				while notprime <= n
 					primeHash[notprime] = false
-					notprime += potentialprime
+					notprime += potential_prime
 				end
 			end
 		end
-		potentialprime += 2
+		potential_prime += 2
 	end
-	return primes
+	prime_hash
 end
 
-puts buildPrimeArray gets.chomp.to_i
+puts build_prime_hash gets.chomp.to_i
