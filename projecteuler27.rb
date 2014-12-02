@@ -1,23 +1,23 @@
-def build_prime_hash n
+def build_prime_hash(n)
   # returns a hash containing all the prime numbers up to some positive integer n
-  prime_hash = {
-    2 => true
-  }
+  prime_hash = { 2 => true }
   potential_prime = 3
   while potential_prime <= n
     if prime_hash[potential_prime] != false
       prime_hash[potential_prime] = true
-      if potential_prime**2 < n
-        notprime = potential_prime * 2
-        while notprime <= n
-          prime_hash[notprime] = false
-          notprime += potential_prime
-        end
-      end
+      add_multiples(potential_prime, prime_hash, n) if potential_prime**2 < n
     end
     potential_prime += 2
   end
   prime_hash
+end
+
+def add_multiples(prime, prime_hash, n)
+  not_prime = prime * 2
+  while not_prime <= n
+    prime_hash[not_prime] = false
+    not_prime += prime
+  end
 end
 
 is_prime = build_prime_hash(100_000)
