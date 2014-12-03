@@ -28,7 +28,6 @@ pandigital_primes = []
   pandigital = Integer(permute.join)
   if prime_hash[pandigital]
     pandigital_primes << pandigital
-    puts pandigital
   end
 end
 
