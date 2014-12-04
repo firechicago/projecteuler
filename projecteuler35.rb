@@ -3,7 +3,7 @@ require 'prime'
 circ_primes = 1 # starting with one because the test on line 6 will incorrectly ignore 2
 Prime.each(1_000_000) do |num|
   digit_array = num.to_s.split('')
-  next if digit_array.any? { |digit| digit.to_i.even? }
+  next if digit_array.any? { |digit| digit.to_i.even? || digit == '5' }
   circ_prime = true
   digit_array.length.times do
     digit_array.rotate!
