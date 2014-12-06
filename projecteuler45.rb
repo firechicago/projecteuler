@@ -12,7 +12,7 @@ def hexagonal?(n)
   (a - a.round).abs <= 0.000001
 end
 
-n = 40_756
+n = ARGV[0].to_i
 
 n += 1 until hexagonal?(triangle(n)) && pentagonal?(triangle(n))
 
