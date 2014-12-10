@@ -9,8 +9,8 @@ def pentagonal?(n)
   (a - a.round).abs <= 0.000001
 end
 
-(1..3_000).each do |a|
-  ((a + 1)..3_000).each do |b|
+(1..10_000).each do |a|
+  ((a + 1)..10_000).each do |b|
     pentagon_a = pentagon(a)
     pentagon_b = pentagon(b)
     if pentagonal?(pentagon_a + pentagon_b) && pentagonal?(pentagon_b - pentagon_a)
