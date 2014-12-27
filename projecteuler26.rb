@@ -1,5 +1,3 @@
-require 'pry'
-
 ONE = 10**2_000
 longest_cycle = 0
 longest_divisor = 0
