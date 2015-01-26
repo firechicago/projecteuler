@@ -1,4 +1,3 @@
-
 start = Time.now
 
 def to_digits(d)
@@ -21,12 +20,7 @@ def smallest_cube(digits)
 end
 
 def check_cube(n, cube_hash, root)
-  n_digits = to_digits(n).sort
-  cube_hash = Hash.new(0) if n_digits.length > ((root - 1)**3).to_s.length
-  cube_hash.each do |key, _value|
-    return cube_hash[key] += 1 if n_digits == key
-  end
-  cube_hash[n_digits] += 1
+  cube_hash[to_digits(n).sort] += 1
 end
 
 cube_hash = Hash.new(0)
